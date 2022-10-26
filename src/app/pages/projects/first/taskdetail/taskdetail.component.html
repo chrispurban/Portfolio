@@ -1,0 +1,69 @@
+<div fxFlex.gt-sm="50vw">
+  <mat-progress-bar *ngIf="UI_thinking" mode="indeterminate" color="accent">
+  </mat-progress-bar>
+
+  <div>
+      <mat-form-field>
+        <input #subject="ngModel" [(ngModel)]="task.subject" type="text" placeholder="Subject" matInput>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea #issue="ngModel" [(ngModel)]="task.issue" style="overflow:hidden;" type="text" placeholder="Issue" matInput cdkTextareaAutosize>
+        </textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea #notes="ngModel" [(ngModel)]="task.notes" [hidden]="task.notes && !UI_editingNotes" type="text" placeholder="Notes" style="overflow:hidden;" matInput cdkTextareaAutosize>
+        </textarea>
+        <div *ngIf="task.notes && !UI_editingNotes" (click)="toggleNotes()" style="white-space:pre-wrap;">
+          <div [innerHtml]="task.notes | linkify">
+          </div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-datepicker-toggle matSuffix [for]="lifeline">
+        </mat-datepicker-toggle>
+        <input placeholder="Deadline" #deadline="ngModel" [(ngModel)]="task.deadline" [matDatepicker]="lifeline" [min]="task.createdAt" name="deadline" matInput>
+        <mat-datepicker #lifeline>
+        </mat-datepicker>
+      </mat-form-field>
+
+      <br>
+
+      {{('null' | workflow)[0].icon}} <i>Created on {{task.history[0].time | date:'longDate'}}</i>
+      <span *ngIf="task.state.time && task.state.phase"><br>
+        {{(task.state.phase | workflow).icon}} <i>{{(task.state.phase | workflow).name}} as of {{task.state.time | date:'longDate'}} {{task.state.time | date:'shortTime'}}
+      </i></span>
+      <br>
+      <i>Last modified on {{task.updatedAt | date:'longDate'}} {{task.updatedAt | date:'shortTime'}}</i>
+
+      <br><br>
+
+      <div fxLayout="row wrap">
+
+        <button fxFlex.lt-md="50%" fxFlex.gt-sm="20%" (click)="delete()" mat-raised-button>
+          <span *ngIf="UI_deletionProtection">Delete</span>
+          <span *ngIf="!UI_deletionProtection">Are you sure?</span>
+        </button>
+        <button fxShow.lt-md fxHide.gt-sm fxFlex="50%" (click)="update()" mat-raised-button>
+          Save
+        </button>
+
+        <div fxFlex.lt-md="100%" fxFlex.gt-sm="60%">
+          <button fxFlex *ngIf="task.state.phase > 0" (click)="update(-1)" color="accent" mat-raised-button>
+            Return to {{(task.state.phase - 1 | workflow).name}}
+          </button>
+          <button fxFlex *ngIf="task.state.phase + 1 | workflow" (click)="update(+1)" color="primary" mat-raised-button>
+            Advance to {{(task.state.phase + 1 | workflow).name}}
+          </button>
+        </div>
+
+        <button fxHide.lt-md fxShow.gt-sm fxFlex="20%" (click)="update()" mat-raised-button>
+          Save
+        </button>
+
+      </div>
+
+  </div>
+</div>

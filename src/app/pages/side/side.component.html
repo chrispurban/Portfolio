@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div [ngStyle]="{'height':view.height+'px'}" fxLayout.lt-sm="column" fxLayout.gt-xs="row">
+
+  <section fxHide fxShow.gt-xs fxFlex="{{(view.gap*8)}}px" fxLayout="column" style="background-color:#111111; color:white; overflow:hidden; padding:{{view.gap}}px 0px;">
+
+    <div style="position:relative; height:{{(view.gap*6)}}px;">
+      <div style="position:absolute; left:0; right:0; top:0; bottom:0;">
+        <img src="../../assets/chris.png" style="width:100%; height:100%; object-fit:contain;">
+      </div>
+    </div>
+
+    <div fxFlex="nogrow" style="margin-top:{{view.gap}}px; margin-bottom:{{view.gap}}px;" fxLayout="column" fxLayoutAlign="space-around center">
+      <span style="font-family:'Josefin Sans','Ubuntu',sans-serif; font-size:2.5em; line-height:100%;">Chris Urban</span>
+      <span style="margin-top:{{(view.gap/4)}}px; text-align:center;">Let's build something great!</span>
+    </div>
+
+    <span fxFlex></span>
+
+    <div class="links">
+      <ul fxLayout="column" fxLayoutAlign="space-around center" class="icons" style="font-size:200%; line-height:150%">
+        <li>
+          <a routerLink='/projects'>
+            <i class="fa fa-home"></i>
+            <span> Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="mailto:chrispurban@gmail.com">
+            <i class="fa fa-envelope"></i>
+            <span> Email</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/1MwDVuUkU7Z9uFsqpEFlmHigw1HaT18y9" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-file"></i>
+            <span> Resume</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/chrispurban/" target="_blank" rel="noopener noreferrer">
+            <i class="fa fa-linkedin-square"></i>
+            <span> LinkedIn</span></a>
+        </li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!---------------------------------------------------------------------->
+
+  <section fxFlex="grow" style="color:white; position:relative; overflow-x:hidden; overflow-y:auto;">
+    <router-outlet (activate)="loaded($event)"></router-outlet>
+  </section>
+
+  <!-- a *ngIf="outlet && outlet.taskEntry" (click)="outlet.taskEntry()" mat-raised-button color="accent">Create Task</a -->
+
+</div>

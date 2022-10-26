@@ -1,0 +1,45 @@
+<div fxFlex.gt-xs="50vw">
+  <mat-progress-bar *ngIf="UI_thinking" mode="indeterminate" color="accent"></mat-progress-bar>
+
+  <h1>NEW TASK {{('null' | workflow)[0].icon}}</h1>
+
+  <form #newtask="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
+    <mat-dialog-content>
+
+      <mat-form-field>
+        <input [(ngModel)]="task.subject" #subject="ngModel" name="subject" placeholder="Subject" type="text" required appFocus matInput autocomplete="off">
+        <mat-error *ngIf="subject.errors?.required">Subject is required</mat-error>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field>
+        <input #issue="ngModel" [(ngModel)]="task.issue" name="issue" placeholder="Issue" required type="text" autocomplete="off" matInput>
+        <mat-error *ngIf="issue.errors?.required">Issue is required</mat-error>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field>
+        <input #notes="ngModel" [(ngModel)]="task.notes" name="notes" placeholder="Notes" type="text" autocomplete="off" matInput>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field>
+        <input #deadline="ngModel" [(ngModel)]="task.deadline" [matDatepicker]="lifeline" [min]="UI_now"  name="deadline" placeholder="Deadline"  autocomplete="off" matInput>
+        <mat-datepicker-toggle matSuffix [for]="lifeline"></mat-datepicker-toggle>
+        <mat-datepicker #lifeline></mat-datepicker>
+      </mat-form-field>
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+      <button fxFlex="100" [disabled]="newtask.form.invalid" type="submit" mat-raised-button>Create</button>
+    </mat-dialog-actions>
+
+  </form>
+
+  {{errorMessage}}
+</div>
