@@ -60,14 +60,25 @@
 
             <div fxFlex="none" fxLayout="row" fxLayoutAlign="center center" style="background-color:hsla(0, 0%, 50%, 0.5); font-size:120%; line-height:105%; padding:4px;">
 
-              <a fxFlex="50%" style="text-align:left; display:flex; align-items:center;" href="https://github.com/chrispurban/Portfolio2">
+              <a fxFlex="50%" style="text-align:left; display:flex; align-items:center;" href='{{project.repository}}'>
                   <span class="fa fa-github" style="font-size:175%; margin:{{(view.gap/4)}}px;"></span>
                   <span fxFlex>Source<br>Code</span>
               </a>
 
               <span fxFlex="{{(view.gap/4)}}px"></span>
 
-              <a fxFlex="50%" style="text-align:right; display:flex; align-items:center;" routerLink='/projects/{{project.address}}/tasks'>
+              <!-- routerLink overrides and excludes attr.href; alternatives create 30 lines elsewhere -->
+              <a *ngIf="project.internal"
+                fxFlex="50%" style="text-align:right; display:flex; align-items:center;"
+                routerLink="{{project.address}}"
+              >
+                <span fxFlex>Live<br>Demo</span>
+                <span class="fa fa-paper-plane" style="font-size:150%; margin:{{(view.gap/4)}}px;"></span>
+              </a>
+              <a *ngIf="!project.internal"
+                fxFlex="50%" style="text-align:right; display:flex; align-items:center;"
+                href="{{project.address}}"
+              >
                 <span fxFlex>Live<br>Demo</span>
                 <span class="fa fa-paper-plane" style="font-size:150%; margin:{{(view.gap/4)}}px;"></span>
               </a>
