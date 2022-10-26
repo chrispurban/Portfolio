@@ -16,6 +16,12 @@ let projectSchema = new Schema(
     }],
     desc:[{
       type:String
+    }],
+    internal:[{
+      type:Boolean
+    }],
+    published:[{
+      type:Boolean
     }]
   },
   {

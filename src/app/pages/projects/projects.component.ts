@@ -20,7 +20,7 @@ export class ProjectsComponent implements OnInit {
     this.view
       .readProjects()
       .subscribe(
-        value => this.projects = value,
+        value => this.projects = value.filter(p => p.published == true),      
         error => {
           this.errorMessage = <any>error;
           console.log(this.errorMessage);

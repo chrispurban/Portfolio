@@ -3,4 +3,6 @@ export interface Project {
     name:string;
     tech:object;
     desc:object;
+    internal:boolean;
+    published:boolean;
 }
