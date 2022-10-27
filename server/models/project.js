@@ -17,12 +17,12 @@ let projectSchema = new Schema(
     desc:[{
       type:String
     }],
-    internal:[{
+    internal:{
       type:Boolean
-    }],
-    published:[{
+    },
+    published:{
       type:Boolean
-    }]
+    }
   },
   {
     timestamps:false
