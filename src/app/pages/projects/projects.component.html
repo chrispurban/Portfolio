@@ -50,12 +50,11 @@
       <h4>{{errorMessage.message}}</h4>
     </div>
 
-    <div *ngFor="let project of projects" style="margin:{{view.gap}}px; margin-top:0px; padding:{{view.gap}}px; background-color:hsla(0, 0%, 0%, 0.5);" [ngStyle.gt-sm]="{'max-width':view.height+'px'}">
+    <div *ngFor="let project of projects" fxFlex style="margin:{{view.gap}}px; margin-top:0px; padding:{{view.gap}}px; background-color:hsla(0, 0%, 0%, 0.5);" [ngStyle.gt-sm]="{'max-width':view.height+'px'}">
 
       <div fxLayout.lt-md="column" fxLayout.gt-sm="row" style="overflow-y:auto;" fxLayoutAlign="center center">
 
-          <div fxFlex fxLayout="column">
-
+          <div fxFlex fxLayout="column" style="width:100%;">
             <h1>App: {{project.name}}</h1>
 
             <div fxFlex="none" fxLayout="row" fxLayoutAlign="center center" style="background-color:hsla(0, 0%, 50%, 0.5); font-size:120%; line-height:105%; padding:4px;">
