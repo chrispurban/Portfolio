@@ -13,8 +13,9 @@ router
   .route('/') // this is to get all tasks
   .options(cors(config.whitelist), (req,res,next)=>{res.sendStatus(200);})
   .get(cors(), auth.user, (req,res,next) => {
+    //console.warn("ran task GET")
     TaskModel
-      .find({owner:req.user.sub})
+      .find({owner:req.auth.sub})
       .then(
         (task) => {
           res.statusCode = 200;
@@ -26,7 +27,9 @@ router
       .catch((err) => next(err));
   })
   .post(cors(config.whitelist), auth.user, (req, res, next) => {
-    req.body.owner = req.user.sub;
+    //console.warn("ran task POST")
+    //console.log(req)
+    req.body.owner = req.auth.sub;
     if(req.body._id){delete req.body._id;} // purge any local ID it may have had
     TaskModel
       .create(req.body)
@@ -43,8 +46,9 @@ router
 
   })
   .delete(cors(config.whitelist), auth.user, (req, res, next) => {
+    console.warn("ran task DELETE")
     TaskModel
-      .remove({owner:req.user.sub})
+      .remove({owner:req.auth.sub})
       .then(
         (task) => {
           res.statusCode = 200;
@@ -56,6 +60,7 @@ router
       .catch((err) => next(err));
   })
   .all((req, res, next) => {
+      console.warn("ran task ALL")
       res.statusCode = 405; // method not allowed
       res.redirect('./');
   })
