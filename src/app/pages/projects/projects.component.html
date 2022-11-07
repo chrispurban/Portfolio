@@ -1,117 +1,377 @@
-<div class="splash" fxLayout="column" style="overflow-x:hidden; overflow-y:auto; width:100%">
+<div
+  class="splash"
+  fxLayout="column"
+  style="
+    overflow-x:hidden;
+    overflow-y:auto;
+    width:100%
+  "
+>
 
-  <section fxHide.gt-xs [ngStyle.lt-sm]="{'min-height':view.height - (view.gap*2) + 'px', 'margin':view.gap + 'px', 'margin-bottom':'0px'}" style="overflow-x:hidden;">
+  <section
+    fxHide.gt-xs
+    [ngStyle.lt-sm]="{
+      'min-height':view.height - (view.gap*2) + 'px',
+      'margin':view.gap + 'px',
+      'margin-bottom':'0px'
+    }"
+    style="overflow-x:hidden;"
+  >
 
-    <div fxLayout="column" style="height:100%; background-color:hsla(0, 0%, 0%, 0.5); padding:{{view.gap}}px;">
+    <div
+      fxLayout="column"
+      style="height:100%; background-color:hsla(0, 0%, 0%, 0.5); padding:{{view.gap}}px;"
+    >
 
-      <div style="position:relative; height:{{(view.width-(view.gap*4))}}px; max-height:{{((view.height/2)-(view.gap*2.25))}}px;">
-        <div style="position:absolute; left:0; right:0; top:0; bottom:0;">
-          <img src="../../assets/chris.png" style="width:100%; height:100%; object-fit:contain;">
+      <div style="
+        position:relative;
+        height:{{(view.width-(view.gap*4))}}px;
+        max-height:{{((view.height/2)-(view.gap*2.25))}}px;
+      ">
+        <div style="
+          position:absolute;
+          left:0; right:0; top:0; bottom:0;
+        ">
+          <img
+            src="../../assets/chris.png"
+            style="width:100%; height:100%; object-fit:contain;"
+          >
         </div>
       </div>
 
-      <div fxFlex="nogrow" style="margin-top:{{(view.gap)}}px; margin-bottom:{{(view.gap)}}px;" fxLayout="column" fxLayoutAlign="space-around center">
-        <span style="font-size:{{((view.scale-(view.gap*4))/6)}}px; line-height:100%; text-shadow: 0px 0px 8px black; font-family:'Josefin Sans','Ubuntu',sans-serif;">Chris Urban</span>
-        <span style="font-size:{{((view.scale-(view.gap*4))/15)}}px; line-height:120%; margin-top:{{(view.gap/4)}}px">Let's build something great!</span>
+      <div
+        fxFlex="nogrow"
+        style="margin-top:{{(view.gap)}}px; margin-bottom:{{(view.gap)}}px;"
+        fxLayout="column"
+        fxLayoutAlign="space-around center"
+      >
+        <span style="
+          font-size:{{((view.scale-(view.gap*4))/6)}}px;
+          line-height:100%;
+          text-shadow: 0px 0px 8px black;
+          font-family:'Josefin Sans','Ubuntu',sans-serif;
+        ">
+          Chris Urban
+        </span>
+        <span style="
+          font-size:{{((view.scale-(view.gap*4))/15)}}px;
+          line-height:120%;
+          margin-top:{{(view.gap/4)}}px
+        ">
+          Let's build something great!
+        </span>
       </div>
 
       <span fxFlex></span>
 
-      <div fxflex="nogrow" class="links" style="font-size:{{((view.scale-(view.gap*4))/8)}}px; line-height:140%;">
-        <ul fxLayout="column" fxLayoutAlign="space-around center">
+      <div
+        fxflex="nogrow"
+        class="links"
+        style="
+          font-size:{{((view.scale-(view.gap*4))/8)}}px;
+          line-height:140%;
+        "
+      >
+        <ul
+          fxLayout="column"
+          fxLayoutAlign="space-around center"
+        >
           <li>
-            <a class="fa fa-envelope" href="mailto:chrispurban@gmail.com"><span> Email</span></a>
+            <a
+              class="fa fa-envelope"
+              href="mailto:chrispurban@gmail.com"
+            >
+              <span>
+                Email
+              </span>
+            </a>
           </li>
           <li>
-            <a class="fa fa-file" href="https://drive.google.com/file/d/1g6EiiNQ9mkArkGvvDeQTTR-VLohdUZiM"><span> Resume</span></a>
+            <a
+              class="fa fa-file"
+              href="https://drive.google.com/file/d/1g6EiiNQ9mkArkGvvDeQTTR-VLohdUZiM"
+            >
+              <span>
+                Resume
+              </span>
+            </a>
           </li>
           <li>
-            <a class="fa fa-linkedin-square" href="https://www.linkedin.com/in/christopher-urban-82807841/" target="_blank"><span> LinkedIn</span></a>
+            <a
+              class="fa fa-linkedin-square"
+              href="https://www.linkedin.com/in/christopher-urban-82807841/"
+              target="_blank"
+            >
+              <span>
+                LinkedIn
+              </span>
+            </a>
           </li>
         </ul>
       </div>
 
-      <div fxFlex="nogrow" style="margin-top:{{(view.gap)}}px; font-size:{{((view.scale-(view.gap*4))/15)}}px; line-height:120%;" fxLayout="row" fxLayoutAlign="space-around center">
+      <div
+        fxFlex="nogrow"
+        style="
+          margin-top:{{(view.gap)}}px;
+          font-size:{{((view.scale-(view.gap*4))/15)}}px;
+          line-height:120%;
+        "
+        fxLayout="row"
+        fxLayoutAlign="space-around center"
+      >
         <i class="fa fa-chevron-down fa-2x"></i>
-        <span fxFlex style="padding:0px {{(view.gap/2)}}px;">Scroll down to see some code in action</span>
+        <span
+          fxFlex
+          style="padding:0px {{(view.gap/2)}}px;"
+        >
+          Scroll down to see some code in action
+        </span>
         <i class="fa fa-chevron-down fa-2x"></i>
       </div>
-      <!--
-    -->
+
     </div>
 
   </section>
 
-  <section id="projects" fxLayout="column" fxLayoutAlign="start center">
-    <span style="height:{{view.gap}}px"></span>
 
-    <div fxFlex *ngIf="errorMessage" style="text-align:center">
-      <h2>Error</h2>
-      <h4>{{errorMessage.message}}</h4>
-    </div>
+  <!----------------------------------------------------------------------------------------------------------------------------------->
+  <!----------------------------------------------------------------------------------------------------------------------------------->
 
-    <div *ngFor="let project of projects" fxFlex style="margin:{{view.gap}}px; margin-top:0px; padding:{{view.gap}}px; background-color:hsla(0, 0%, 0%, 0.5);" [ngStyle.gt-sm]="{'max-width':view.height+'px'}">
 
-      <div fxLayout.lt-md="column" fxLayout.gt-sm="row" style="overflow-y:auto;" fxLayoutAlign="center center">
+    <section
+      style="
+        display:flex;
+        justify-content:center;
+        padding:{{view.gap}}px;
+      "
+    >
 
-          <div fxFlex fxLayout="column" style="width:100%;">
-            <h1>App: {{project.name}}</h1>
+      <div
+        style="
+          display:flex;
+          flex-direction:column;
+          width:100%;
+          max-width:{{view.height}}px;
+          gap:{{view.gap}}px;
+        "
+      >
 
-            <div fxFlex="none" fxLayout="row" fxLayoutAlign="center center" style="background-color:hsla(0, 0%, 50%, 0.5); font-size:120%; line-height:105%; padding:4px;">
+          <div
+            *ngFor="let project of projects"
+            style="
+              padding:{{view.gap/4}}px;
+              background-color:hsla(0, 0%, 0%, 0.25);
+            "
+          >
 
-              <a fxFlex="50%" style="text-align:left; display:flex; align-items:center;" href='{{project.repository}}'>
-                  <span class="fa fa-github" style="font-size:175%; margin:{{(view.gap/4)}}px;"></span>
-                  <span fxFlex>Source<br>Code</span>
-              </a>
+              <div
 
-              <span fxFlex="{{(view.gap/4)}}px"></span>
-
-              <!-- routerLink overrides and excludes attr.href; alternatives create ~30 lines elsewhere -->
-              <a *ngIf="project.internal"
-                fxFlex="50%" style="text-align:right; display:flex; align-items:center;"
-                routerLink="{{project.address}}"
+                style="
+                  display:flex;
+                  background-color:hsla(0, 0%, 0%, 0.33);
+                  padding:{{view.gap*(3/4)}}px;
+                  gap:{{view.gap}}px;
+                  align-items:center;
+                "
+                [ngStyle.gt-sm]="{
+                  'flex-direction':'row'
+                }"
+                [ngStyle.lt-md]="{
+                  'flex-direction':'column'
+                }"
               >
-                <span fxFlex>Live<br>Demo</span>
-                <span class="fa fa-paper-plane" style="font-size:150%; margin:{{(view.gap/4)}}px;"></span>
-              </a>
-              <a *ngIf="!project.internal"
-                fxFlex="50%" style="text-align:right; display:flex; align-items:center;"
-                href="{{project.address}}"
-              >
-                <span fxFlex>Live<br>Demo</span>
-                <span class="fa fa-paper-plane" style="font-size:150%; margin:{{(view.gap/4)}}px;"></span>
-              </a>
+                <div
+                  style="
+                    display:flex;
+                    flex-direction:column;
+                    gap:{{view.gap}}px;
+                    justify-content:center;
+                  "
+                  [ngStyle.gt-sm]="{
+                    'width':(100/3)+'%'
+                  }"
+                  [ngStyle.lt-md]="{
+                    'width':'100%'
+                  }"
+                >
+                  <div
+                    style="
+                      display:flex;
+                      flex-direction:column;
+                      align-items:center;
+                      width:100%;
+                      gap:{{view.gap/2}}px;
+                    "
+                  >
+                    <h1>
+                      App: {{project.name}}
+                    </h1>
+                    <div
+                      style="
+                        background-color:hsla(0, 0%, 50%, 0.33);
+                        display:flex;
+                        width:100%;
+                      "
+                    >
+                      <div style="
+                        margin:{{view.gap/4}}px;
+                        display:flex;
+                        font-size:120%;
+                        width:100%;
+                        gap:{{view.gap/4}}px;
+                        flex-wrap:wrap;
+                      ">
+                        <!-- https://github.com/angular/angular/issues/24567 ... routerLink unlikely to be fixed -->
+                        <a
+                          style="
+                            display:flex;
+                            align-items:center;
+                            flex-direction:row;
+                            flex-grow:1;
+                            gap:{{view.gap/4}}px;
+                            text-align:left;
+                          "
+                          href="{{project.repository}}"
+                        >
+                          <source
+                            class="fa fa-github"
+                            style="font-size:225%;"
+                          />
+                          <div>
+                            Source<br>Code
+                          </div>
+                        </a>
+                        <a
+                          *ngIf="project.internal == true"
+                          style="
+                            display:flex;
+                            align-items:center;
+                            flex-direction:row-reverse;
+                            flex-grow:1;
+                            gap:{{view.gap/4}}px;
+                            text-align:right;
+                          "
+                          routerLink="{{project.address}}"
+                        >
+                          <source
+                            class="fa fa-paper-plane"
+                            style="font-size:175%;"
+                          />
+                          <div>
+                            Live<br>Demo
+                          </div>
+                        </a>
+                        <a
+                          *ngIf="project.internal == false"
+                          style="
+                            display:flex;
+                            align-items:center;
+                            flex-direction:row-reverse;
+                            flex-grow:1;
+                            gap:{{view.gap/4}}px;
+                            text-align:right;
+                          "
+                          href="{{project.address}}"
+                        >
+                          <source
+                            class="fa fa-paper-plane"
+                            style="font-size:175%;"
+                          />
+                          <div>
+                            Live<br>Demo
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
 
-            </div>
+                  <div
+                    style="
+                      width:100%;
+                      gap:{{view.gap/2}}px;
+                      display:flex;
+                      flex-direction:column;
+                    "
+                  >
+                    <div>
+                      <h1>
+                        Technologies
+                      </h1>
+                    </div>
+                    <div
+                      style="
+                        display:flex;
+                        flex-direction:row;
+                        flex-wrap:wrap;
+                        justify-content:center;
+                        gap:{{view.gap/8}}px {{view.gap/4}}px;
+                      "
+                    >
+                      <span
+                        *ngFor="let tech of project.tech"
+                        style="
+                          display:flex;
+                          gap:{{view.gap/4}}px;
+                        "
+                      >
+                        <span>
+                          ⬥
+                        </span>
+                        <span>
+                          {{tech}}
+                        </span>
+                      </span>
 
-            <span fxFlex="{{view.gap}}px"></span>
+                    </div>
+                  </div>
+                </div>
 
-            <div fxFlex>
-              <h1>Technologies</h1>
-              <div fxLayout="row wrap" fxLayoutAlign="center center">
-                <div *ngFor="let tech of project.tech" style="white-space:nowrap;">
-                  <span style="margin:8px;">⬥</span>{{tech}}
+                <div
+                  style="
+                    height:100%;
+                    display:flex;
+                    align-items:center;
+                    flex-direction:column;
+                    gap:{{view.gap/2}}px;
+                  "
+                  [ngStyle.gt-sm]="{
+                    'width':(200/3)+'%'
+                  }"
+                  [ngStyle.lt-md]="{
+                    'width':'100%'
+                  }"
+                >
+                  <h1
+                    style="
+                      display:flex;
+                    "
+                  >
+                    Purpose & Features
+                  </h1>
+                  <div
+                    *ngFor="let desc of project.desc"
+                    style="
+                      display:flex;
+                      align-items:center;
+                    "
+                  >
+                    {{desc}}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <span fxFlex></span>
-          </div>
-
-          <span fxFlex="{{(view.gap)}}px"></span>
-
-          <div fxFlex fxFlex.gt-sm="66%" fxLayout.lt-md="column" fxLayout.gt-sm="row">
-            <div fxFlex fxFlex.gt-sm="100%">
-              <h1>Purpose & Features</h1>
-              <div fxLayout="column" fxLayoutGap="20px">
-                <div *ngFor="let desc of project.desc">{{desc}}</div>
-              </div>
-            </div>
           </div>
 
       </div>
 
-    </div>
-  </section>
+    </section>
+
+    <!----------------------------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------------------------->
+
+
+<!----------------------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------------------->
 
 </div>
