@@ -34,8 +34,12 @@ export class TasklistComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskService
-      .read().subscribe(
-        value => {this.tasks = value.map(workflow)},
+      .read()
+      .subscribe(
+        value => {
+          this.tasks = value.map(workflow)
+          console.log('tasks should be updated')
+        },
         error => this.errorMessage = <any>error
       );
   }
@@ -53,11 +57,19 @@ export class TasklistComponent implements OnInit {
   taskDetail(task){
     this.bottomSheet
       .open(TaskdetailComponent, {data:task}) // open in popup
-      .afterDismissed().subscribe((result)=>{
+      .afterDismissed()
+      .subscribe((result)=>{
         if(result){
-          result.target = this.tasks.findIndex((x)=>x._id==result.value._id); // what's relisted
-          if(result.delete){this.tasks.splice(result.target, 1);}
-          else{this.tasks[result.target] = result.value}
+          if(result.delete){ // popup sent back request for deletion
+            this.tasks = this.tasks.filter(
+              x=>x._id !== result.value._id
+            )
+          }
+          else{
+            this.tasks = this.tasks.map(
+              x=>x._id == result.value._id? {...result.value}: x // replace edited task
+            )
+          }
         };
       });
   }
@@ -65,8 +77,11 @@ export class TasklistComponent implements OnInit {
   taskEntry(){
     this.bottomSheet
       .open(TaskentryComponent) // open in popup
-      .afterDismissed().subscribe((result)=>{
-        if(result){this.tasks.push(workflow(result))}; // add to current list
+      .afterDismissed()
+      .subscribe((result)=>{
+        if(result){
+          this.tasks = [...this.tasks, workflow(result)] // workflow appends a current state from history
+        }; // add to current list
       });
   }
 

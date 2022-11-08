@@ -25,7 +25,7 @@ export class TaskService {
     }
     else{
       let now = new Date().toISOString();
-      data._id = "guest_" + now;
+      data._id = `guest_${now}_${Math.random().toString().slice(2, 34)}`
       data.updatedAt = now;
       localStorage.add('tasks', data);
       return of(data);
@@ -84,8 +84,7 @@ export class TaskService {
     }
     else{
       localStorage.transact('tasks', (content) => {
-        let target = content[localStorage('tasks').findIndex((i)=>i._id==taskID)];
-        content.splice(target, 1);
+        content.splice(content.findIndex((i)=>i._id==taskID), 1);
       });
       return of(true);
     }
