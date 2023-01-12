@@ -1,55 +1,240 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div [ngStyle]="{'height':view.height+'px'}" fxLayout.lt-sm="column" fxLayout.gt-xs="row">
+<div
+  style="
+    display:flex;
+    outline:1px solid gold;
+  "
+  [ngStyle.gt-xs]="{
+    'flex-direction':'row',
+    'height':'100vh'
+  }"
+  [ngStyle.lt-sm]="{
+    'flex-direction':'column'
+  }"
+>
+  <section
+    [fxHide]="location.path()!=='/projects' && isSmall"
+    style="
+      display:flex;
+      justify-content:center;
+      height:100vh;
+    "
+  >
+    <div
+      style="
+        overflow-y:hidden;
+        display:flex;
+        width:100%;
+      "
+      [ngStyle.gt-xs]="{
+        'padding':'0px',
+        'background-color':'#111111'
+      }"
+      [ngStyle.lt-sm]="{
+        'padding':view.gap*(1/4)+'px',
+        'background-color':'hsla(0, 0%, 0%, 0.33)',
+        'margin':view.gap+'px'
+      }"
+    >
+      <div
+        style="
+          display:flex;
+        "
+        [ngStyle.gt-xs]="{
+          'width':(view.gap*6)+'px',
+          'padding':view.gap+'px'
+        }"
+        [ngStyle.lt-sm]="{
+          'width':'100%',
+          'padding':view.gap*(3/4)+'px',
+          'background-color':'hsla(0, 0%, 0%, 0.33)'
+        }"
+      >
 
-  <section fxHide fxShow.gt-xs fxFlex="{{(view.gap*8)}}px" fxLayout="column" style="background-color:#111111; color:white; overflow:hidden; padding:{{view.gap}}px 0px;">
 
-    <div style="position:relative; height:{{(view.gap*6)}}px;">
-      <div style="position:absolute; left:0; right:0; top:0; bottom:0;">
-        <img src="../../assets/chris.png" style="width:100%; height:100%; object-fit:contain;">
+        <div
+          style="
+            display:flex;
+            width:100%;
+            overflow-y:hidden;
+            flex-direction:column;
+            align-items:center;
+            gap:{{view.gap}}px;
+          "
+        >
+
+          <div
+            style="
+              display:flex;
+              width:100%;
+              align-items:center;
+              justify-content:center;
+              flex-direction:column;
+            "
+          >
+            <img
+              src="../../assets/chris.png"
+              style="
+                width:100%;
+                object-fit:contain;
+                max-height:{{view.gap*6}}px;
+              "
+            />
+          </div>
+
+          <div
+            style="
+              display:flex;
+              width:100%;
+              align-items:center;
+              justify-content:center;
+              flex-direction:column;
+              gap:{{view.gap/4}}px;
+              text-align:center;
+            "
+          >
+            <h1
+              style="
+                font-size:250%;
+              "
+            >
+              Chris Urban
+            </h1>
+            Let's build something great!
+          </div>
+
+          <div
+            style="
+              display:flex;
+              width:100%;
+              align-items:center;
+              justify-content:center;
+              flex-direction:column;
+              flex-grow:1;
+            "
+          >
+          </div>
+
+          <div
+            style="
+              display:flex;
+              width:100%;
+              align-items:center;
+              justify-content:center;
+              flex-direction:column;
+            "
+          >
+            <ul
+              style="
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                flex-direction:column;
+                font-size:125%;
+                line-height:150%;
+                gap:{{view.gap/4}}px;
+              "
+              class="icons"
+            >
+              <li>
+                <a
+                  routerLink='/projects'
+                >
+                  <h1>
+                    <source
+                      class="fa fa-home"
+                      style="
+                        font-size:105%;
+                      "
+                    />
+                    Home
+                  </h1>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:chrispurban@gmail.com"
+                >
+                  <h1>
+                    <source
+                      class="fa fa-envelope"
+                      style="
+                        font-size:75%;
+                        vertical-align:top;
+                        margin-right:2px;
+                      "
+                    />
+                    Email
+                  </h1>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://drive.google.com/file/d/1MwDVuUkU7Z9uFsqpEFlmHigw1HaT18y9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <h1>
+                    <source
+                      class="fa fa-file"
+                      style="
+                        font-size:75%;
+                        vertical-align:top;
+                        margin-right:2px;
+                      "
+                    />
+                    Resume
+                  </h1>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/chrispurban/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <h1>
+                    <source
+                      class="fa fa-linkedin-square"
+                      style="
+                        font-size:80%;
+                        vertical-align:top;
+                        margin-right:2px;
+                      "
+                    />
+                    LinkedIn
+                  </h1>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- div
+            <i class="fa fa-chevron-down fa-2x"></i>
+            <span
+              fxFlex
+              style="padding:0px {{(view.gap/2)}}px;"
+            >
+              Scroll down to see some code in action
+            </span>
+            <i class="fa fa-chevron-down fa-2x"></i>
+          /div -->
+
+        </div>
+
       </div>
     </div>
-
-    <div fxFlex="nogrow" style="margin-top:{{view.gap}}px; margin-bottom:{{view.gap}}px;" fxLayout="column" fxLayoutAlign="space-around center">
-      <span style="font-family:'Josefin Sans','Ubuntu',sans-serif; font-size:2.5em; line-height:100%;">Chris Urban</span>
-      <span style="margin-top:{{(view.gap/4)}}px; text-align:center;">Let's build something great!</span>
-    </div>
-
-    <span fxFlex></span>
-
-    <div class="links">
-      <ul fxLayout="column" fxLayoutAlign="space-around center" class="icons" style="font-size:200%; line-height:150%">
-        <li>
-          <a routerLink='/projects'>
-            <i class="fa fa-home"></i>
-            <span> Home</span>
-          </a>
-        </li>
-        <li>
-          <a href="mailto:chrispurban@gmail.com">
-            <i class="fa fa-envelope"></i>
-            <span> Email</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://drive.google.com/file/d/1MwDVuUkU7Z9uFsqpEFlmHigw1HaT18y9" target="_blank" rel="noopener noreferrer">
-            <i class="fa fa-file"></i>
-            <span> Resume</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/chrispurban/" target="_blank" rel="noopener noreferrer">
-            <i class="fa fa-linkedin-square"></i>
-            <span> LinkedIn</span></a>
-        </li>
-      </ul>
-    </div>
-
   </section>
 
-  <!---------------------------------------------------------------------->
+  <!----------------------------------------------------------------------------------------------------------------------------------->
+  <!----------------------------------------------------------------------------------------------------------------------------------->
 
-  <section fxFlex="grow" style="color:white; position:relative; overflow-x:hidden; overflow-y:auto;">
+  <section
+    style="
+      flex-grow:1;
+    "
+  >
     <router-outlet (activate)="loaded($event)"></router-outlet>
   </section>
 

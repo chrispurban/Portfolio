@@ -10,6 +10,7 @@ import { MaterialModule } from './app-material';//
 import { FlexLayoutModule } from '@angular/flex-layout';//
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';//
 import { AutosizeModule } from 'ngx-autosize';//
+import { LayoutModule } from '@angular/cdk/layout';
 
 //services
 import { TaskService } from './services/task.service'; //
@@ -63,7 +64,8 @@ import { TasktileComponent } from './pages/projects/first/tasktile/tasktile.comp
     FormsModule,//
     ReactiveFormsModule,//
     HttpClientModule,
-    AutosizeModule//
+    AutosizeModule,//
+    LayoutModule
   ],
   providers: [
     TaskService, //

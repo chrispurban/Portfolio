@@ -3,141 +3,12 @@
   fxLayout="column"
   style="
     overflow-x:hidden;
-    overflow-y:auto;
     width:100%
   "
 >
-
-  <section
-    fxHide.gt-xs
-    [ngStyle.lt-sm]="{
-      'min-height':view.height - (view.gap*2) + 'px',
-      'margin':view.gap + 'px',
-      'margin-bottom':'0px'
-    }"
-    style="overflow-x:hidden;"
-  >
-
-    <div
-      fxLayout="column"
-      style="height:100%; background-color:hsla(0, 0%, 0%, 0.5); padding:{{view.gap}}px;"
-    >
-
-      <div style="
-        position:relative;
-        height:{{(view.width-(view.gap*4))}}px;
-        max-height:{{((view.height/2)-(view.gap*2.25))}}px;
-      ">
-        <div style="
-          position:absolute;
-          left:0; right:0; top:0; bottom:0;
-        ">
-          <img
-            src="../../assets/chris.png"
-            style="width:100%; height:100%; object-fit:contain;"
-          >
-        </div>
-      </div>
-
-      <div
-        fxFlex="nogrow"
-        style="margin-top:{{(view.gap)}}px; margin-bottom:{{(view.gap)}}px;"
-        fxLayout="column"
-        fxLayoutAlign="space-around center"
-      >
-        <span style="
-          font-size:{{((view.scale-(view.gap*4))/6)}}px;
-          line-height:100%;
-          text-shadow: 0px 0px 8px black;
-          font-family:'Josefin Sans','Ubuntu',sans-serif;
-        ">
-          Chris Urban
-        </span>
-        <span style="
-          font-size:{{((view.scale-(view.gap*4))/15)}}px;
-          line-height:120%;
-          margin-top:{{(view.gap/4)}}px
-        ">
-          Let's build something great!
-        </span>
-      </div>
-
-      <span fxFlex></span>
-
-      <div
-        fxflex="nogrow"
-        class="links"
-        style="
-          font-size:{{((view.scale-(view.gap*4))/8)}}px;
-          line-height:140%;
-        "
-      >
-        <ul
-          fxLayout="column"
-          fxLayoutAlign="space-around center"
-        >
-          <li>
-            <a
-              class="fa fa-envelope"
-              href="mailto:chrispurban@gmail.com"
-            >
-              <span>
-                Email
-              </span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="fa fa-file"
-              href="https://drive.google.com/file/d/1g6EiiNQ9mkArkGvvDeQTTR-VLohdUZiM"
-            >
-              <span>
-                Resume
-              </span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="fa fa-linkedin-square"
-              href="https://www.linkedin.com/in/christopher-urban-82807841/"
-              target="_blank"
-            >
-              <span>
-                LinkedIn
-              </span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div
-        fxFlex="nogrow"
-        style="
-          margin-top:{{(view.gap)}}px;
-          font-size:{{((view.scale-(view.gap*4))/15)}}px;
-          line-height:120%;
-        "
-        fxLayout="row"
-        fxLayoutAlign="space-around center"
-      >
-        <i class="fa fa-chevron-down fa-2x"></i>
-        <span
-          fxFlex
-          style="padding:0px {{(view.gap/2)}}px;"
-        >
-          Scroll down to see some code in action
-        </span>
-        <i class="fa fa-chevron-down fa-2x"></i>
-      </div>
-
-    </div>
-
-  </section>
-
-
+  
   <!----------------------------------------------------------------------------------------------------------------------------------->
   <!----------------------------------------------------------------------------------------------------------------------------------->
-
 
     <section
       style="
@@ -145,6 +16,12 @@
         justify-content:center;
         padding:{{view.gap}}px;
       "
+      [ngStyle.gt-xs]="{
+        paddingTop:view.gap+'px'
+      }"
+      [ngStyle.lt-sm]="{
+        paddingTop:'0px'
+      }"
     >
 
       <div
@@ -161,7 +38,7 @@
             *ngFor="let project of projects"
             style="
               padding:{{view.gap/4}}px;
-              background-color:hsla(0, 0%, 0%, 0.25);
+              background-color:hsla(0, 0%, 0%, 0.33);
             "
           >
 
@@ -209,7 +86,7 @@
                     </h1>
                     <div
                       style="
-                        background-color:hsla(0, 0%, 50%, 0.33);
+                        background-color:hsla(0, 0%, 50%, 0.25);
                         display:flex;
                         width:100%;
                       "
@@ -288,17 +165,16 @@
 
                   <div
                     style="
-                      width:100%;
-                      gap:{{view.gap/2}}px;
                       display:flex;
                       flex-direction:column;
+                      align-items:center;
+                      width:100%;
+                      gap:{{view.gap/2}}px;
                     "
                   >
-                    <div>
                       <h1>
                         Technologies
                       </h1>
-                    </div>
                     <div
                       style="
                         display:flex;
@@ -366,10 +242,6 @@
       </div>
 
     </section>
-
-    <!----------------------------------------------------------------------------------------------------------------------------------->
-    <!----------------------------------------------------------------------------------------------------------------------------------->
-
 
 <!----------------------------------------------------------------------------------------------------------------------------------->
 <!----------------------------------------------------------------------------------------------------------------------------------->

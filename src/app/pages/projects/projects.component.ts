@@ -17,16 +17,32 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit():void {
 
+    this.projects = []
+
     this.view
       .readProjects()
       .subscribe(
-        value => this.projects = value.filter(p => p.published == true).reverse(),      
+        value => {
+          this.projects = value.filter(p => p.published == true).reverse()
+          for(let n of Array(0)){
+            this.projects.push(
+              {
+                  address:'string',
+                  name:'string',
+                  tech:['string'],
+                  desc:[`string`],
+                  internal:true,
+                  published:true,
+              }
+            );
+          }
+        },
         error => {
           this.errorMessage = <any>error;
           console.log(this.errorMessage);
         }
       );
-    // for(let n of Array(0)){  this.projects.push(this.projects[0]);}
+
   }
 
 }
