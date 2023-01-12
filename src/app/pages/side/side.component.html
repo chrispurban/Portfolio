@@ -3,9 +3,10 @@
 <div
   style="
     display:flex;
-    height:100vh;
   "
   [ngStyle.gt-xs]="{
+    'height':'100vh',
+    'maxHeight':(view.height)+'px',
     'flex-direction':'row'
   }"
   [ngStyle.lt-sm]="{
