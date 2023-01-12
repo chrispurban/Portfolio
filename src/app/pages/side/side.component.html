@@ -3,11 +3,10 @@
 <div
   style="
     display:flex;
-    outline:1px solid gold;
+    height:100vh;
   "
   [ngStyle.gt-xs]="{
-    'flex-direction':'row',
-    'height':'100vh'
+    'flex-direction':'row'
   }"
   [ngStyle.lt-sm]="{
     'flex-direction':'column'
@@ -18,7 +17,6 @@
     style="
       display:flex;
       justify-content:center;
-      height:100vh;
     "
   >
     <div
@@ -34,6 +32,8 @@
       [ngStyle.lt-sm]="{
         'padding':view.gap*(1/4)+'px',
         'background-color':'hsla(0, 0%, 0%, 0.33)',
+        'height':'calc(100vh - 80px)',
+        'maxHeight':(view.height-80)+'px',
         'margin':view.gap+'px'
       }"
     >
