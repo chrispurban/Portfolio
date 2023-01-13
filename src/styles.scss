@@ -4,9 +4,25 @@ body {
   padding:0;
   //overflow:hidden;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color:#1b212d; background-image:url(./assets/topography.svg);
   color:white;
 }
+
+@media (prefers-color-scheme: light){
+  /* Light theme styles go here */
+  body {
+    background-color:#1b212d;
+    background-image:url(./assets/topography.svg);
+  }
+}
+
+@media (prefers-color-scheme: dark){
+  /* Dark theme styles go here */
+  body {
+    background-color:#1b212d;
+    background-image:url(./assets/topography.svg);
+  }
+}
+
 
 ///////////////////// toolbar
 /*
