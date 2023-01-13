@@ -6,7 +6,7 @@
   "
   [ngStyle.gt-xs]="{
     'height':'100vh',
-    'maxHeight':(view.height)+'px',
+    'maxHeight':'100svh',
     'flex-direction':'row'
   }"
   [ngStyle.lt-sm]="{
@@ -34,7 +34,7 @@
         'padding':view.gap*(1/4)+'px',
         'background-color':'hsla(0, 0%, 0%, 0.33)',
         'height':'calc(100vh - 80px)',
-        'maxHeight':(view.height-80)+'px',
+        'maxHeight':'calc(100svh - 80px)',
         'margin':view.gap+'px'
       }"
     >
