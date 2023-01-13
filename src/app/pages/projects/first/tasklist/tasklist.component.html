@@ -1,5 +1,3 @@
-
-
   <div style="
     overflowY:auto;
     width:100%;
@@ -87,11 +85,23 @@
 
     <section
       style="
-        height:auto;
         display:flex;
+        justifyContent:space-between;
       "
-      [ngStyle.gt-sm]="{'flexDirection':'row'}"
-      [ngStyle.lt-md]="{'flexDirection':'column'}"
+      [ngStyle.gt-sm]="{
+        'flexDirection':'row',
+        'height':'auto'
+      }"
+      [ngStyle.sm]="{
+        'flexDirection':'column',
+        'height':'calc(100vh - '+(view.gap*9/4)+'px)',
+        'maxHeight':'calc(100svh - '+(view.gap*9/4)+'px)'
+      }"
+      [ngStyle.lt-sm]="{
+        'flexDirection':'column',
+        'height':'calc(100vh - '+(view.gap*11/4)+'px)',
+        'maxHeight':'calc(100svh - '+(view.gap*11/4)+'px)'
+      }"
     >
 
       <div
