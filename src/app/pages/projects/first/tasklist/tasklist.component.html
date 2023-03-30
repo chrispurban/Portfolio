@@ -4,12 +4,14 @@
     height:100vh;
     max-height:100svh;
   ">
-    <section style="
-      backgroundColor:#111111;
-      position:sticky;
-      zIndex:2;
-      top:0px;
-    ">
+    <section
+      style="
+        position:sticky;
+        zIndex:2;
+        top:0px;
+      "
+      class="dark"
+    >
 
       <div style="
         height:{{view.gap}}px;
@@ -73,8 +75,8 @@
           left:0px;
           right:0px;
           height:{{view.gap/4}}px;
-          backgroundColor:#111111;
         "
+        class="dark"
         [ngStyle.gt-xs]="{'top':(view.gap*(9/4))+'px'}"
         [ngStyle.lt-sm]="{'top':(view.gap*(11/4))+'px'}"
       >
@@ -110,11 +112,11 @@
       >
         <div
           style="
-            background-color:#111111;
             padding:{{view.gap*(1/4)}}px;
             zIndex:1;
             position:sticky;
           "
+          class="dark"
           [ngStyle.gt-xs]="{'top':(view.gap*(9/4))+'px'}"
           [ngStyle.lt-sm]="{'top':(view.gap*(11/4))+'px'}"
         >

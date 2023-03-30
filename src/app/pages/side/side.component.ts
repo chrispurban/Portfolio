@@ -16,7 +16,7 @@ import {
 
 export class SideComponent implements OnInit {
 
-  isSmall = false;
+  isSmall = true;
 
   constructor(
     public auth:AuthService,
@@ -33,11 +33,9 @@ export class SideComponent implements OnInit {
       .observe(
         Breakpoints.XSmall
       )
-      .subscribe(
-        result=>{
+      .subscribe(result=>{
           this.isSmall = result.matches?true:false
-        }
-      )
+      })
 
   }
 

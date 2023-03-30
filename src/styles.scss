@@ -4,7 +4,7 @@ body {
   padding:0;
   //overflow:hidden;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  color:white;
+  color:hsla(0, 0%, 100%, 0.98);
 }
 
 @media (prefers-color-scheme: light){
@@ -63,7 +63,20 @@ body {
 //div{outline:1px dashed silver;}
 //span{outline:1px solid gold;}
 //section{outline:2px dashed red;}
+a{
+  text-decoration:none;
+  color:hsla(180, 100%, 45%, 0.80);
+}
 
+@media only screen and (hover: hover) and (pointer: fine) {
+	a{
+	  transition:
+      background-color 0.2s ease-in-out,
+      color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out;
+	}
+	a:hover{color:hsla(0, 0%, 50%, 1.0);}
+}
 
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 h1 {
@@ -71,4 +84,11 @@ h1 {
   margin-bottom:0px;
   font-size:175%;
   line-height:100%;
+}
+
+.dark {
+  background-color: hsla(0, 0%, 6%, 1.0);
+  &.fade {
+    background-color: hsla(0, 0%, 6%, 0.5);
+  }
 }

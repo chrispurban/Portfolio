@@ -1,4 +1,4 @@
-ul.icons{
+ul{
 	height:100%; margin:0px; padding:0px;
 	cursor:default;
 	list-style:none;
@@ -6,6 +6,7 @@ ul.icons{
 	li{
 		display:inline-block;
 	}
+	/*
   a{
 		text-decoration:none;
 		color:grey; opacity: 0.8;
@@ -14,7 +15,10 @@ ul.icons{
 			color 0.2s ease-in-out,
 			border-color 0.2s ease-in-out;}
   a:hover{color:cyan;}
+  */
 }
+
+
 
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 h1 {
@@ -22,4 +26,8 @@ h1 {
   margin-bottom:0px;
   font-size:175%;
   line-height:100%;
+}
+
+div, ul {
+	display:flex;
 }

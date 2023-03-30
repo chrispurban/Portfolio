@@ -1,170 +1,64 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div
-  style="
-    display:flex;
-  "
-  [ngStyle.gt-xs]="{
-    'height':'100vh',
-    'maxHeight':'100svh',
-    'flex-direction':'row'
-  }"
-  [ngStyle.lt-sm]="{
-    'flex-direction':'column'
-  }"
+  [ngStyle.gt-xs]="{'flex-direction':'row',     'maxHeight':'100svh', 'height':'100vh'}"
+  [ngStyle.lt-sm]="{'flex-direction':'column'   }"
 >
   <section
-    [fxHide]="location.path()!=='/projects' && isSmall"
-    style="
-      display:flex;
-      justify-content:center;
-    "
+    style="display:flex; justify-content:center"
+    [fxHide]="!(location.path().startsWith('/projects') && location.path().split('/').length == 2) && isSmall"
   >
     <div
-      style="
-        overflow-y:hidden;
-        display:flex;
-        width:100%;
-      "
-      [ngStyle.gt-xs]="{
-        'padding':'0px',
-        'background-color':'#111111'
-      }"
-      [ngStyle.lt-sm]="{
-        'padding':view.gap*(1/4)+'px',
-        'background-color':'hsla(0, 0%, 0%, 0.33)',
-        'height':'calc(100vh - 80px)',
-        'maxHeight':'calc(100svh - 80px)',
-        'margin':view.gap+'px'
-      }"
+      style="overflow-y:hidden; width:100%;"
+      [ngStyle.gt-xs]="{'padding':'0px',                'background-color':'hsla(0, 0%, 6%, 1.00)'}"
+      [ngStyle.lt-sm]="{'padding':view.gap*(1/4)+'px',  'background-color':'hsla(0, 0%, 6%, 0.50)', 'height':'calc(100vh - 80px)', 'maxHeight':'calc(100svh - 80px)', 'margin':view.gap+'px'}"
     >
       <div
-        style="
-          display:flex;
-        "
-        [ngStyle.gt-xs]="{
-          'width':(view.gap*6)+'px',
-          'padding':view.gap+'px'
-        }"
-        [ngStyle.lt-sm]="{
-          'width':'100%',
-          'padding':view.gap*(3/4)+'px',
-          'background-color':'hsla(0, 0%, 0%, 0.33)'
-        }"
+        [ngStyle.gt-xs]="{'width':(view.gap*6)+'px',    'padding':view.gap+'px'}"
+        [ngStyle.lt-sm]="{'width':'100%',               'padding':view.gap*(3/4)+'px',  'background-color':'hsla(0, 0%, 6%, 1.00)'}"
       >
+        <div style="width:100%; overflow-y:hidden; flex-direction:column; align-items:center; gap:{{view.gap}}px;">
 
 
-        <div
-          style="
-            display:flex;
-            width:100%;
-            overflow-y:hidden;
-            flex-direction:column;
-            align-items:center;
-            gap:{{view.gap}}px;
-          "
-        >
-
-          <div
-            style="
-              display:flex;
-              width:100%;
-              align-items:center;
-              justify-content:center;
-              flex-direction:column;
-            "
-          >
+          <div style="width:100%; align-items:center; justify-content:center; flex-direction:column;">
             <img
               src="../../assets/chris.png"
-              style="
-                width:100%;
-                object-fit:contain;
-                max-height:{{view.gap*6}}px;
-              "
+              style="width:100%; object-fit:contain; max-height:{{view.gap*6}}px;"
             />
           </div>
 
-          <div
-            style="
-              display:flex;
-              width:100%;
-              align-items:center;
-              justify-content:center;
-              flex-direction:column;
-              gap:{{view.gap/4}}px;
-              text-align:center;
-            "
-          >
-            <h1
-              style="
-                font-size:250%;
-              "
-            >
+
+          <div style="width:100%; align-items:center; justify-content:center; flex-direction:column; gap:{{view.gap/4}}px; text-align:center;">
+            <h1 style="font-size:250%;">
               Chris Urban
             </h1>
             Let's build something great!
           </div>
 
-          <div
-            style="
-              display:flex;
-              width:100%;
-              align-items:center;
-              justify-content:center;
-              flex-direction:column;
-              flex-grow:1;
-            "
-          >
+
+          <div style="width:100%; align-items:center; justify-content:center; flex-direction:column; flex-grow:1;">
           </div>
 
-          <div
-            style="
-              display:flex;
-              width:100%;
-              align-items:center;
-              justify-content:center;
-              flex-direction:column;
-            "
-          >
-            <ul
-              style="
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                flex-direction:column;
-                font-size:125%;
-                line-height:150%;
-                gap:{{view.gap/4}}px;
-              "
-              class="icons"
-            >
-              <li>
-                <a
-                  routerLink='/projects'
-                >
+
+          <div style="width:100%; align-items:center; justify-content:center; flex-direction:column;">
+            <ul style="align-items:center; justify-content:center; flex-direction:column; font-size:125%; line-height:150%; gap:{{view.gap/2}}px;">
+              <li [fxHide]="isSmall">
+                <a routerLink='/projects'>
                   <h1>
                     <source
                       class="fa fa-home"
-                      style="
-                        font-size:105%;
-                      "
+                      style="font-size:105%;"
                     />
                     Home
                   </h1>
                 </a>
               </li>
               <li>
-                <a
-                  href="mailto:chrispurban@gmail.com"
-                >
+                <a href="mailto:chrispurban@gmail.com">
                   <h1>
                     <source
                       class="fa fa-envelope"
-                      style="
-                        font-size:75%;
-                        vertical-align:top;
-                        margin-right:2px;
-                      "
+                      style="font-size:75%; vertical-align:top; margin-right:2px;"
                     />
                     Email
                   </h1>
@@ -179,11 +73,7 @@
                   <h1>
                     <source
                       class="fa fa-file"
-                      style="
-                        font-size:75%;
-                        vertical-align:top;
-                        margin-right:2px;
-                      "
+                      style="font-size:75%; vertical-align:top; margin-right:2px;"
                     />
                     Resume
                   </h1>
@@ -198,11 +88,7 @@
                   <h1>
                     <source
                       class="fa fa-linkedin-square"
-                      style="
-                        font-size:80%;
-                        vertical-align:top;
-                        margin-right:2px;
-                      "
+                      style="font-size:80%; vertical-align:top; margin-right:2px;"
                     />
                     LinkedIn
                   </h1>
@@ -211,16 +97,14 @@
             </ul>
           </div>
 
-          <!-- div
-            <i class="fa fa-chevron-down fa-2x"></i>
-            <span
-              fxFlex
-              style="padding:0px {{(view.gap/2)}}px;"
-            >
-              Scroll down to see some code in action
-            </span>
-            <i class="fa fa-chevron-down fa-2x"></i>
-          /div -->
+          <div 
+            style="align-items:center; justify-content:center; text-align:center; flex-direction:row; gap:{{view.gap/2}}px;"
+            [fxHide]="!isSmall"
+          >
+            <source class="fa fa-chevron-down"/>
+              <div>Scroll for projects</div>
+            <source class="fa fa-chevron-down"/>
+          </div>
 
         </div>
 
@@ -231,11 +115,7 @@
   <!----------------------------------------------------------------------------------------------------------------------------------->
   <!----------------------------------------------------------------------------------------------------------------------------------->
 
-  <section
-    style="
-      flex-grow:1;
-    "
-  >
+  <section style="justify-content:center; flex-grow:1;">
     <router-outlet (activate)="loaded($event)"></router-outlet>
   </section>
 

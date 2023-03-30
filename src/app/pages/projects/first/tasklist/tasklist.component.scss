@@ -1,3 +1,4 @@
+/*
 a{
   color:cyan; opacity:0.8;
   text-decoration:none;
@@ -12,6 +13,7 @@ a{
   }
   a:hover{color:silver;}
 }
+*/
 
 /*
 .column{
@@ -52,12 +54,12 @@ div
     cursor:pointer;
     > div{
       position:absolute;top:0;left:0;bottom:0;right:0;
-      background-color:#444444;
+      background-color:hsla(0, 0%, 24%, 1.00);
       border-radius:6px;
     }
     > header{
       position:absolute;top:0;right:0;
-      background-color:#111111;
+      background-color:hsla(0, 0%, 6%, 1.00);
       border-radius:0px 6px;
       line-height:80%;
       font-size:80%;

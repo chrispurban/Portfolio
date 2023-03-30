@@ -37,21 +37,19 @@
 
           <div
             *ngFor="let project of projects"
-            style="
-              padding:{{view.gap/4}}px;
-              background-color:hsla(0, 0%, 0%, 0.33);
-            "
+            style="padding:{{view.gap/4}}px;"
+            class="dark fade"
           >
 
               <div
 
                 style="
                   display:flex;
-                  background-color:hsla(0, 0%, 0%, 0.33);
                   padding:{{view.gap*(3/4)}}px;
                   gap:{{view.gap}}px;
                   align-items:center;
                 "
+                class="dark"
                 [ngStyle.gt-sm]="{
                   'flex-direction':'row'
                 }"
@@ -231,9 +229,11 @@
                     style="
                       display:flex;
                       align-items:center;
+                      font-style:{{desc.includes('*') ? 'italic' : 'normal'}};
+                      font-weight:{{desc.includes('*') ? '550' : '400'}};
                     "
                   >
-                    {{desc}}
+                    {{ desc.split('*').join('') }}
                   </div>
                 </div>
               </div>

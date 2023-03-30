@@ -1,17 +1,3 @@
-a{
-  color:cyan; opacity:0.8;
-  text-decoration:none;
-}
-@media only screen and (hover) {
-  a{
-    transition:
-      background-color 0.2s ease-in-out,
-      color 0.2s ease-in-out,
-      border-color 0.2s ease-in-out;
-  }
-  a:hover{color:silver;}
-}
-
 .splash{
   ::-webkit-scrollbar {
     display: none;
@@ -34,10 +20,6 @@ a{
   	li{
   		display:inline-block;
   	}
-    a{
-  		text-decoration:none;
-  		color:cyan; opacity: 0.8;
-    }
   }
 	span{
 		font-family:'Josefin Sans','Ubuntu',sans-serif;
