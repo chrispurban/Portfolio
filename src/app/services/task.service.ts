@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 
 import { AuthService } from './auth.service';
 
-import * as localStorage from 'store2'; // this stops working with latest version of the package
+import store from 'store2'; // this stops working with latest version of the package
 
 @Injectable({
   providedIn: 'root'
@@ -27,21 +27,21 @@ export class TaskService {
       let now = new Date().toISOString();
       data._id = `guest_${now}_${Math.random().toString().slice(2, 34)}`
       data.updatedAt = now;
-      localStorage.add('tasks', data);
+      store.add('tasks', data);
       return of(data);
     }
   }
 
   read():Observable<any>{ console.warn("Reading tasks...");
-    if(!localStorage('tasks')){localStorage('tasks', [example()])}
+    if(!store('tasks')){store('tasks', [example()])}
     return new Observable((obs)=>{
       obs.next([])
       this.auth.getUser$().toPromise().then((profile)=>{
         if(profile){ console.log("Signed in as: " + profile.nickname);
           (async()=>{ // wait for full upload before retrieving from server
             await(async()=>{ // wait for individual upload before uploading next one
-              if(localStorage('tasks').length > 0){ console.log("Local task detected, uploading...")
-                for (let task of localStorage('tasks')){
+              if(store('tasks').length > 0){ console.log("Local task detected, uploading...")
+                for (let task of store('tasks')){
                   await this.create(task).toPromise().then(()=>{
                     this.delete(task._id).toPromise();
                   })
@@ -53,7 +53,7 @@ export class TaskService {
           })()
         }
         else{ console.log("You are not signed in!")
-          obs.next(localStorage('tasks'));
+          obs.next(store('tasks'));
         }
       })
     })
@@ -64,8 +64,8 @@ export class TaskService {
       return this.client.put(environment.baseurl + 'api/tasks/' + taskID, data);
     }
     else{
-      localStorage.transact('tasks', (content) => { // reach inside the list of tasks
-        let target = content[localStorage('tasks').findIndex((i)=>i._id==taskID)]; // task of interest
+      store.transact('tasks', (content) => { // reach inside the list of tasks
+        let target = content[store('tasks').findIndex((i)=>i._id==taskID)]; // task of interest
         for(let property in data){
           if(data[property].constructor === Object){target[property].push(data[property]);} // append, for history
           else{target[property] = data[property];} // other properties are replaced
@@ -83,7 +83,7 @@ export class TaskService {
       return this.client.delete(environment.baseurl + 'api/tasks/' + taskID)
     }
     else{
-      localStorage.transact('tasks', (content) => {
+      store.transact('tasks', (content) => {
         content.splice(content.findIndex((i)=>i._id==taskID), 1);
       });
       return of(true);
