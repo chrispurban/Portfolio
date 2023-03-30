@@ -7,7 +7,7 @@
     <section
       style="
         position:sticky;
-        zIndex:2;
+        z-index:2;
         top:0px;
       "
       class="dark"
@@ -34,33 +34,35 @@
       <div
         style="
           display:flex;
-          padding:0px {{(view.gap/4)}}px;
+          padding:0px {{(view.gap/8)}}px;
           gap:{{view.gap/4}}px;
         "
-        [ngStyle.gt-xs]="{
+        [ngStyle.gt-md]="{
           'height':(view.gap*1.25)+'px'
         }"
-        [ngStyle.lt-sm]="{
+        [ngStyle.lt-lg]="{
           'height':(view.gap*1.75)+'px'
         }"
       >
         <button
-          style="flex:1;"
-          fxHide.gt-xs routerLink='/home'
+          style="flex:2;"
+          routerLink='/home'
           color="accent"
           mat-raised-button
         >
           Return Home
         </button>
         <button
-          style="flex:1;"
+          [ngStyle.gt-md]="{'flex':2}"
+          [ngStyle.md]="{'flex':3}"
+          [ngStyle.lt-md]="{'flex':6}"
           (click)="taskEntry()"
           mat-raised-button
         >
           Create Task
         </button>
         <button
-          style="flex:1;"
+          style="flex:2;"
           (click)="auth.loggedIn?auth.logout():auth.login('/projects/first/tasks')"
           color="primary"
           mat-raised-button
@@ -77,8 +79,8 @@
           height:{{view.gap/4}}px;
         "
         class="dark"
-        [ngStyle.gt-xs]="{'top':(view.gap*(9/4))+'px'}"
-        [ngStyle.lt-sm]="{'top':(view.gap*(11/4))+'px'}"
+        [ngStyle.gt-md]="{'top':(view.gap*(9/4))+'px'}"
+        [ngStyle.lt-lg]="{'top':(view.gap*(11/4))+'px'}"
       >
       </div>
 
@@ -90,16 +92,16 @@
         display:flex;
         justifyContent:space-between;
       "
-      [ngStyle.gt-sm]="{
+      [ngStyle.gt-md]="{
         'flexDirection':'row',
         'height':'auto'
       }"
-      [ngStyle.sm]="{
-        'flexDirection':'column',
+      [ngStyle.md]="{
+        'flexDirection':'row',
         'height':'calc(100vh - '+(view.gap*9/4)+'px)',
         'maxHeight':'calc(100svh - '+(view.gap*9/4)+'px)'
       }"
-      [ngStyle.lt-sm]="{
+      [ngStyle.lt-md]="{
         'flexDirection':'column',
         'height':'calc(100vh - '+(view.gap*11/4)+'px)',
         'maxHeight':'calc(100svh - '+(view.gap*11/4)+'px)'
@@ -113,19 +115,19 @@
         <div
           style="
             padding:{{view.gap*(1/4)}}px;
-            zIndex:1;
+            z-index:1;
             position:sticky;
           "
           class="dark"
-          [ngStyle.gt-xs]="{'top':(view.gap*(9/4))+'px'}"
-          [ngStyle.lt-sm]="{'top':(view.gap*(11/4))+'px'}"
+          [ngStyle.gt-md]="{'top':(view.gap*(9/4))+'px'}"
+          [ngStyle.lt-lg]="{'top':(view.gap*(11/4))+'px'}"
         >
           <div
             style="
               display:flex;
               width:100%;
               align-items:center;
-              font-size:200%;
+              font-size:175%;
               gap:{{view.gap/8}}px;
             "
             [ngStyle.lt-md]="{
@@ -142,7 +144,7 @@
             <span style="height:{{view.gap}}px; display:flex; align-items:center;">
               {{group.icon}}
             </span>
-            <span style="font-size:50%;">
+            <span style="font-size:66%; font-weight:550;">
               {{group.name | uppercase}}
             </span>
             <span fxHide.gt-sm>
