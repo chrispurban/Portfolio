@@ -31,7 +31,7 @@ export class SideComponent implements OnInit {
 
     this.breakpointer
       .observe(
-        Breakpoints.XSmall
+        [Breakpoints.XSmall, Breakpoints.Small]
       )
       .subscribe(result=>{
           this.isSmall = result.matches?true:false

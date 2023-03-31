@@ -1,4 +1,4 @@
-<div fxFlex.gt-sm="50vw">
+<div>
   <mat-progress-bar *ngIf="UI_thinking" mode="indeterminate" color="accent">
   </mat-progress-bar>
 
@@ -40,29 +40,56 @@
 
       <br><br>
 
-      <div fxLayout="row wrap">
-
-        <button fxFlex.lt-md="50%" fxFlex.gt-sm="20%" (click)="delete()" mat-raised-button>
+      <div
+        style="
+          display:flex;
+          padding:0px 0px;
+          gap:{{view.gap/4}}px;
+        "
+        [ngStyle.gt-sm]="{'height':(view.gap*1.5)+'px'}"
+        [ngStyle.lt-md]="{'height':(view.gap*3)+'px'}"
+      >
+        <button
+          (click)="delete()"
+          mat-raised-button color="accent"
+          style="flex: 1; padding:0;"
+        >
           <span *ngIf="UI_deletionProtection">Delete</span>
           <span *ngIf="!UI_deletionProtection">Are you sure?</span>
         </button>
-        <button fxShow.lt-md fxHide.gt-sm fxFlex="50%" (click)="update()" mat-raised-button>
-          Save
-        </button>
 
-        <div fxFlex.lt-md="100%" fxFlex.gt-sm="60%">
-          <button fxFlex *ngIf="task.state.phase > 0" (click)="update(-1)" color="accent" mat-raised-button>
-            Return to {{(task.state.phase - 1 | workflow).name}}
-          </button>
-          <button fxFlex *ngIf="task.state.phase + 1 | workflow" (click)="update(+1)" color="primary" mat-raised-button>
-            Advance to {{(task.state.phase + 1 | workflow).name}}
-          </button>
+        <div style="flex:2.1;">
+          <div
+          style="display:flex; height:100%; gap:{{view.gap/4}}px;"
+          [ngStyle.gt-sm]="{'flex-direction':'row'}"
+          [ngStyle.lt-md]="{'flex-direction':'column'}"
+          >
+            <button
+              *ngIf="task.state.phase > 0"
+              (click)="update(-1)"
+              mat-raised-button
+              style="flex:1"
+            >
+              Return to {{(task.state.phase - 1 | workflow).name}}
+            </button>
+            <button
+              *ngIf="task.state.phase + 1 | workflow"
+              (click)="update(+1)" 
+              mat-raised-button
+              style="flex:1"
+            >
+              Advance to {{(task.state.phase + 1 | workflow).name}}
+            </button>
+          </div>
         </div>
 
-        <button fxHide.lt-md fxShow.gt-sm fxFlex="20%" (click)="update()" mat-raised-button>
+        <button
+          (click)="update()"
+          mat-raised-button color="primary"
+          style="flex: 1; padding:0;"
+        >
           Save
         </button>
-
       </div>
 
   </div>

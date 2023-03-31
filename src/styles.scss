@@ -86,9 +86,19 @@ h1 {
   line-height:100%;
 }
 
-.dark {
+.dark{
   background-color: hsla(0, 0%, 6%, 1.0);
   &.fade {
     background-color: hsla(0, 0%, 6%, 0.5);
+  }
+}
+
+
+
+// incomplete implementation
+// want this to use breakpoints and view.gap, but the simplest setup of bottom sheet requires it to be here
+.shift-bottom-sheet {
+  @media (min-width: 960px) {
+    margin-left:calc(8*32px);
   }
 }

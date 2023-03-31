@@ -158,7 +158,12 @@
 
                 <!--app-tasktile [tasque]="task"></app-tasktile-->
 
-          <div class="large tile"><div (click)="taskDetail(task)"  [ngStyle.gt-sm]="{'padding-top':'138px'}" [ngStyle.lt-md]="{'padding-top':'106px'}">
+          <div
+            class="large tile"><div
+            (click)="taskDetail(task)"
+            [ngStyle.gt-sm]="{'padding-top':'138px'}"
+            [ngStyle.lt-md]="{'padding-top':'106px'}"
+          >
 
             <div><div [ngStyle.gt-sm]="{'-webkit-line-clamp':'6'}" [ngStyle.lt-md]="{'-webkit-line-clamp':'4'}">
               <div style="padding-bottom:6px;">{{task.subject | uppercase}}</div>
