@@ -9,7 +9,7 @@
     [fxHide]="!(location.path().startsWith('/projects') && location.path().split('/').length == 2) && isSmall"
   >
     <div
-      style="overflow-y:hidden; width:100%;"
+      style="overflow:hidden; width:100%;"
       [ngStyle.gt-xs]="{'padding':'0px',                'background-color':'hsla(0, 0%, 6%, 1.00)'}"
       [ngStyle.lt-sm]="{'padding':view.gap*(1/4)+'px',  'background-color':'hsla(0, 0%, 6%, 0.50)', 'height':'calc(100vh - 80px)', 'maxHeight':'calc(100svh - 80px)', 'margin':view.gap+'px'}"
     >
@@ -17,14 +17,22 @@
         [ngStyle.gt-xs]="{'width':(view.gap*6)+'px',    'padding':view.gap+'px'}"
         [ngStyle.lt-sm]="{'width':'100%',               'padding':view.gap*(3/4)+'px',  'background-color':'hsla(0, 0%, 6%, 1.00)'}"
       >
-        <div style="width:100%; overflow-y:hidden; flex-direction:column; align-items:center; gap:{{view.gap}}px;">
+        <div style="width:100%; overflow:hidden; flex-direction:column; align-items:center; gap:{{view.gap}}px;">
 
 
-          <div style="width:100%; align-items:center; justify-content:center; flex-direction:column;">
+          <div style="width:{{view.gap*6}}px; align-items:center; justify-content:center; flex-direction:column; position:relative;">
             <img
               src="../../assets/chris.png"
-              style="width:100%; object-fit:contain; max-height:{{view.gap*6}}px;"
+              style="
+                width:100%;
+                object-fit:contain;
+                max-height:{{view.gap*6}}px;
+              "
             />
+            <div
+              style="position:absolute; width:calc(100% - {{view.gap/2}}px); height:calc(100% - {{view.gap/2}}px); outline:{{view.gap/4}}px solid hsla(0, 0%, 6%, .5); pointer-events:none;"
+            >
+            </div>
           </div>
 
 
@@ -91,7 +99,7 @@
             [fxHide.gt-xs]=true
           >
             <source class="fa fa-chevron-down"/>
-              <div>Scroll for projects</div>
+              <div>Scroll to see projects</div>
             <source class="fa fa-chevron-down"/>
           </div>
 
