@@ -15,10 +15,10 @@
       style="
         display:flex;
         justify-content:center;
-        padding:{{view.gap}}px;
+        padding:{{(view.gap*(3/4))}}px;
       "
       [ngStyle.gt-xs]="{
-        paddingTop:view.gap+'px'
+        paddingTop:(view.gap*(3/4))+'px'
       }"
       [ngStyle.lt-sm]="{
         paddingTop:'0px'
@@ -31,13 +31,13 @@
           flex-direction:column;
           width:100%;
           max-width:{{view.height}}px;
-          gap:{{view.gap}}px;
+          gap:{{view.gap*(3/4)}}px;
         "
       >
 
           <div
             *ngFor="let project of projects"
-            style="padding:{{view.gap/4}}px;"
+            style="padding:{{view.gap*(1/4)}}px;"
             class="dark fade"
           >
 

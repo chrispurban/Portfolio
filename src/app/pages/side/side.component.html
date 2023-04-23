@@ -10,38 +10,46 @@
   >
     <div
       style="overflow:hidden; width:100%;"
-      [ngStyle.gt-xs]="{'padding':'0px',                'background-color':'hsla(0, 0%, 6%, 1.00)'}"
-      [ngStyle.lt-sm]="{'padding':view.gap*(1/4)+'px',  'background-color':'hsla(0, 0%, 6%, 0.50)', 'height':'calc(100vh - 80px)', 'maxHeight':'calc(100svh - 80px)', 'margin':view.gap+'px'}"
+      [ngStyle.gt-xs]="{'background-color':'hsla(0, 0%, 6%, 1.00)',   'padding':'0px'                }"
+      [ngStyle.lt-sm]="{'background-color':'hsla(0, 0%, 6%, 0.50)',   'padding':view.gap*(1/4)+'px', 'margin':(view.gap*(3/4))+'px',
+        'height':   'calc(100vh  - '+(view.gap*(8/4))+'px)',
+        'maxHeight':'calc(100svh - '+(view.gap*(8/4))+'px)'
+      }"
     >
       <div
-        [ngStyle.gt-xs]="{'width':(view.gap*6)+'px',    'padding':view.gap+'px'}"
+        [ngStyle.gt-xs]="{'width':(view.gap*6)+'px',    'padding':view.gap*(4/4)+'px'}"
         [ngStyle.lt-sm]="{'width':'100%',               'padding':view.gap*(3/4)+'px',  'background-color':'hsla(0, 0%, 6%, 1.00)'}"
       >
-        <div style="width:100%; overflow:hidden; flex-direction:column; align-items:center; gap:{{view.gap}}px;">
+        <div style="width:100%; overflow:hidden; flex-direction:column; align-items:center; gap:{{view.gap*(6/4)}}px;">
 
+            <div style="display:flex; flex-direction:column; gap:{{view.gap*(4/4)}}px">
+              <div style="width:{{view.gap*6}}px; align-items:center; justify-content:center; flex-direction:column; position:relative;">
+                <img
+                  src="../../assets/chris.png"
+                  style="
+                    width:100%;
+                    object-fit:contain;
+                    max-height:{{view.gap*6}}px;
+                  "
+                />
+                <div
+                  style="position:absolute; width:calc(100% - {{view.gap/4}}px); height:calc(100% - {{view.gap/4}}px); outline:{{view.gap/8}}px solid hsla(0, 0%, 6%, .5); pointer-events:none;"
+                >
+              </div>
+            </div>
 
-          <div style="width:{{view.gap*6}}px; align-items:center; justify-content:center; flex-direction:column; position:relative;">
-            <img
-              src="../../assets/chris.png"
-              style="
-                width:100%;
-                object-fit:contain;
-                max-height:{{view.gap*6}}px;
-              "
-            />
-            <div
-              style="position:absolute; width:calc(100% - {{view.gap/2}}px); height:calc(100% - {{view.gap/2}}px); outline:{{view.gap/4}}px solid hsla(0, 0%, 6%, .5); pointer-events:none;"
-            >
+            <div style="width:100%; align-items:center; justify-content:center; flex-direction:column; gap:{{view.gap*(0/4)}}px; text-align:center;">
+              <h1 style="font-size:250%;">
+                Chris Urban
+              </h1>
+              <span style="font-size:100%;">
+                Let's build something great!
+              </span>
             </div>
           </div>
 
 
-          <div style="width:100%; align-items:center; justify-content:center; flex-direction:column; gap:{{view.gap/4}}px; text-align:center;">
-            <h1 style="font-size:250%;">
-              Chris Urban
-            </h1>
-            Let's build something great!
-          </div>
+
 
 
           <div style="width:100%; align-items:center; justify-content:center; flex-direction:column; flex-grow:1;">
@@ -95,7 +103,7 @@
           </div>
 
           <div 
-            style="align-items:center; justify-content:center; text-align:center; flex-direction:row; gap:{{view.gap/2}}px;"
+            style="align-items:center; justify-content:center; text-align:center; flex-direction:row; gap:{{view.gap/2}}px; font-size:100%;"
             [fxHide.gt-xs]=true
           >
             <source class="fa fa-chevron-down"/>
